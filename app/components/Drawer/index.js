@@ -16,6 +16,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
+
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -26,6 +27,10 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+
+import { FormattedMessage } from 'react-intl';
+import messages from './messages';
+
 import { mailFolderListItems, otherMailFolderListItems } from './menuData';
 
 const drawerWidth = 240;
@@ -133,7 +138,7 @@ class MiniDrawer extends React.Component {
               <MenuIcon />
             </IconButton>
             <Typography variant="title" color="inherit" noWrap>
-              Mini variant drawer
+              <FormattedMessage {...messages.applicationName} />
             </Typography>
           </Toolbar>
         </AppBar>
@@ -176,6 +181,7 @@ class MiniDrawer extends React.Component {
 MiniDrawer.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
+  children: PropTypes.array,
 };
 
 export default withStyles(styles, { withTheme: true })(MiniDrawer);
