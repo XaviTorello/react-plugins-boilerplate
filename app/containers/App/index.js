@@ -28,8 +28,6 @@ const AppWrapper = styled.div`
   flex-direction: column;
 `;
 
-
-
 export default function App() {
   return (
     <AppWrapper>
@@ -41,9 +39,9 @@ export default function App() {
       </Helmet>
       <Header />
       <Switch>
+        <Route component={Plugins} />
         <Route exact path="/" component={HomePage} />
         <Route path="/features" component={FeaturePage} />
-        <Route component={Plugins} />
         <Route path="" component={NotFoundPage} />
       </Switch>
       <Footer />
