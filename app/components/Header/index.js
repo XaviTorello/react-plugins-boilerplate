@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
 import A from './A';
@@ -11,6 +12,7 @@ import messages from './messages';
 /* eslint-disable react/prefer-stateless-function */
 class Header extends React.Component {
   render() {
+    const { children } = this.props;
     return (
       <div>
         <A href="https://twitter.com/mxstbr">
@@ -23,10 +25,17 @@ class Header extends React.Component {
           <HeaderLink to="/features">
             <FormattedMessage {...messages.features} />
           </HeaderLink>
+
+          {children}
+
         </NavBar>
       </div>
     );
   }
 }
+
+Header.propTypes = {
+  children: PropTypes.object,
+};
 
 export default Header;
