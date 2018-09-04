@@ -1,4 +1,5 @@
 {
+  "boilerplate.components.Drawer.application.name": "Your f*cking app!",
   "boilerplate.components.Footer.author.message": "Made with love by {author}.",
   "boilerplate.components.Footer.license.message":
     "This project is licensed under the MIT license.",
