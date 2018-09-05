@@ -35,7 +35,7 @@ import Paper from './Paper';
 
 import messages from './messages';
 
-import { changeUsername, login } from './actions';
+import { login } from './actions';
 import { makeSelectUsername, makeSelectToken } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
@@ -157,13 +157,13 @@ LoginPage.propTypes = {
   onSubmitForm: PropTypes.func,
   username: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   token: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-  onChangeUsername: PropTypes.func,
+  // onChangeUsername: PropTypes.func,
   classes: PropTypes.object.isRequired,
 };
 
 export function mapDispatchToProps(dispatch) {
   return {
-    onChangeUsername: evt => dispatch(changeUsername(evt.target.value)),
+    // onChangeUsername: evt => dispatch(changeUsername(evt.target.value)),
     onSubmitForm: evt => {
       if (evt !== undefined && evt.preventDefault) evt.preventDefault();
       dispatch(login.request('a_username', 'a_paswword'));

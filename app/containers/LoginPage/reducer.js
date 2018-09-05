@@ -29,8 +29,8 @@ function loginReducer(state = initialState, action) {
 
     case LOGIN.SUCCESS:
       return state
-        .set('username', 'rolf')
-        .set('token', 'th1sIs4Tok3n!!!')
+        .set('username', action.username)
+        .set('token', action.token)
         .set('loading', false)
         .set('error', false);
 
