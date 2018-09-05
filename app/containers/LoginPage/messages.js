@@ -6,25 +6,20 @@
 import { defineMessages } from 'react-intl';
 
 export default defineMessages({
-  startProjectHeader: {
-    id: 'boilerplate.containers.HomePage.start_project.header',
-    defaultMessage: 'Start your next react project in seconds',
+  welcomeTitle: {
+    id: 'boilerplate.containers.Login.welcomeTitle',
+    defaultMessage: 'Welcome',
   },
-  startProjectMessage: {
-    id: 'boilerplate.containers.HomePage.start_project.message',
-    defaultMessage:
-      'A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices',
+  formEmailTitle: {
+    id: 'boilerplate.containers.Login.form.email.title',
+    defaultMessage: 'Email Address',
   },
-  trymeHeader: {
-    id: 'boilerplate.containers.HomePage.tryme.header',
-    defaultMessage: 'Try me!',
+  formPasswordTitle: {
+    id: 'boilerplate.containers.Login.form.password.title',
+    defaultMessage: 'Password',
   },
-  trymeMessage: {
-    id: 'boilerplate.containers.HomePage.tryme.message',
-    defaultMessage: 'Show Github repositories by',
-  },
-  trymeAtPrefix: {
-    id: 'boilerplate.containers.HomePage.tryme.atPrefix',
-    defaultMessage: '@',
+  formLoginAction: {
+    id: 'boilerplate.containers.Login.form.action.login',
+    defaultMessage: 'Login',
   },
 });

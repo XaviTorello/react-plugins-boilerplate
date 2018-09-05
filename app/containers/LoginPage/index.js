@@ -110,7 +110,9 @@ export class LoginPage extends React.PureComponent {
                   onSubmit={this.props.onSubmitForm}
                 >
                   <FormControl margin="normal" required fullWidth>
-                    <InputLabel htmlFor="email">Email Address</InputLabel>
+                    <InputLabel htmlFor="email">
+                      <FormattedMessage {...messages.formEmailTitle} />
+                    </InputLabel>
                     <Input
                       id="email"
                       name="email"
@@ -119,7 +121,9 @@ export class LoginPage extends React.PureComponent {
                     />
                   </FormControl>
                   <FormControl margin="normal" required fullWidth>
-                    <InputLabel htmlFor="password">Password</InputLabel>
+                    <InputLabel htmlFor="password">
+                      <FormattedMessage {...messages.formPasswordTitle} />
+                    </InputLabel>
                     <Input
                       name="password"
                       type="password"
@@ -134,7 +138,7 @@ export class LoginPage extends React.PureComponent {
                     color="primary"
                     className={classes.submit}
                   >
-                    Login
+                    <FormattedMessage {...messages.formLoginAction} />
                   </Button>
                 </form>
               </Paper>
