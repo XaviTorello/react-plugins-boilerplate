@@ -2,7 +2,7 @@
  * Try to login!
  */
 
-import { call, put, select, takeLatest, all } from 'redux-saga/effects';
+import { call, put, takeLatest, all } from 'redux-saga/effects';
 import request from 'utils/request';
 
 import { LOGIN, login } from './actions';
@@ -17,16 +17,31 @@ export function* performLogin(payload) {
   console.log('ROLF');
   console.log('username', payload);
 
-  const username = payload.username || '';
+  const { username, password } = payload;
+
+  // if (username && password)
 
   // const username = yield select(makeSelectUsername());
   const requestURL = `https://api.github.com/users/${username}/repos?type=all&sort=updated`;
 
   try {
-    // Call our request helper (see 'utils/request')
-    const repos = yield call(request, requestURL);
-    yield put(login.success(repos, username));
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        user: username,
+        password,
+      }),
+    };
+    const loginResult = yield call(request, requestURL, options);
+    console.log('loginResult', loginResult);
+
+    if (loginResult.token) yield put(login.success(loginResult, username));
+    else yield put(login.failure({ message: 'Invalid credentials' }));
   } catch (err) {
+    console.log('err', err);
     yield put(login.failure(err));
   }
 }
