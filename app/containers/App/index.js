@@ -17,6 +17,7 @@ import theme from 'theme';
 
 import Plugins from 'plugins';
 
+import LoginPage from 'containers/LoginPage/Loadable';
 import HomePage from 'containers/HomePage/Loadable';
 import FeaturePage from 'containers/FeaturePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
@@ -47,8 +48,9 @@ export default function App() {
         </Helmet>
         <Header>
           <Switch>
-            <Route exact path="/" component={HomePage} />
+            <Route path="/login" component={LoginPage} />
             <Route path="/features" component={FeaturePage} />
+            <Route exact path="/" component={HomePage} />
             <Route component={Plugins} />
             <Route path="" component={NotFoundPage} />
           </Switch>
