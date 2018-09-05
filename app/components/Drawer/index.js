@@ -181,7 +181,7 @@ class MiniDrawer extends React.Component {
 MiniDrawer.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
-  children: PropTypes.array,
+  children: PropTypes.object,
 };
 
 export default withStyles(styles, { withTheme: true })(MiniDrawer);
