@@ -1,38 +1,41 @@
 /**
- * Gets the repositories of the user from Github
+ * Try to login!
  */
 
 import { call, put, select, takeLatest } from 'redux-saga/effects';
-import { LOAD_REPOS } from 'containers/App/constants';
-import { reposLoaded, repoLoadingError } from 'containers/App/actions';
-
 import request from 'utils/request';
-import { makeSelectUsername } from 'containers/HomePage/selectors';
+
+import { LOGIN, login } from './actions';
+
+// import { makeSelectUsername } from 'containers/HomePage/selectors';
 
 /**
- * Github repos request/response handler
+ * Perform Login throught the API
  */
-export function* getRepos() {
+export function* performLogin(payload) {
   // Select username from store
-  const username = yield select(makeSelectUsername());
+  console.log('ROLF');
+  console.log('username', payload);
+
+  const username = payload.username || '';
+
+  // const username = yield select(makeSelectUsername());
   const requestURL = `https://api.github.com/users/${username}/repos?type=all&sort=updated`;
 
   try {
     // Call our request helper (see 'utils/request')
     const repos = yield call(request, requestURL);
-    yield put(reposLoaded(repos, username));
+    yield put(login.success(repos, username));
   } catch (err) {
-    yield put(repoLoadingError(err));
+    yield put(login.failure(err));
   }
 }
 
-/**
- * Root saga manages watcher lifecycle
- */
-export default function* githubData() {
-  // Watches for LOAD_REPOS actions and calls getRepos when one comes in.
+export default function* loginFlow() {
+  // Watches for LOGIN['REQUEST'] actions and calls performLogin when one comes in.
   // By using `takeLatest` only the result of the latest API call is applied.
   // It returns task descriptor (just like fork) so we can continue execution
   // It will be cancelled automatically on component unmount
-  yield takeLatest(LOAD_REPOS, getRepos);
+  yield takeLatest(LOGIN.REQUEST, performLogin);
+  // yield takeLatest(LOGIN['FAILURE'], console.log("ERROR!!!"));
 }
