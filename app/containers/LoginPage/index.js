@@ -20,8 +20,6 @@ import {
   makeSelectError,
 } from 'containers/App/selectors';
 
-import ReposList from 'components/ReposList';
-
 import withStyles from '@material-ui/core/styles/withStyles';
 
 import Avatar from '@material-ui/core/Avatar';
@@ -37,8 +35,7 @@ import Paper from './Paper';
 
 import messages from './messages';
 
-import { loadRepos } from '../App/actions';
-import { changeUsername, logIn } from './actions';
+import { changeUsername, login } from './actions';
 import { makeSelectUsername, makeSelectToken } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
@@ -89,11 +86,6 @@ export class LoginPage extends React.PureComponent {
 
   render() {
     const { loading, error, repos, classes } = this.props;
-    const reposListProps = {
-      loading,
-      error,
-      repos,
-    };
 
     return (
       <article>
@@ -104,7 +96,7 @@ export class LoginPage extends React.PureComponent {
         <div>
           <CenteredSection>
             <H2>
-              <FormattedMessage {...messages.trymeHeader} />
+              <FormattedMessage {...messages.welcomeTitle} />
             </H2>
 
             <main className={classes.layout}>
@@ -170,7 +162,7 @@ export function mapDispatchToProps(dispatch) {
     onChangeUsername: evt => dispatch(changeUsername(evt.target.value)),
     onSubmitForm: evt => {
       if (evt !== undefined && evt.preventDefault) evt.preventDefault();
-      dispatch(logIn());
+      dispatch(login.request('a_username', 'a_paswword'));
     },
   };
 }
@@ -188,8 +180,8 @@ const withConnect = connect(
   mapDispatchToProps,
 );
 
-const withReducer = injectReducer({ key: 'home', reducer });
-const withSaga = injectSaga({ key: 'home', saga });
+const withReducer = injectReducer({ key: 'login', reducer });
+const withSaga = injectSaga({ key: 'login', saga });
 
 export default compose(
   withReducer,
