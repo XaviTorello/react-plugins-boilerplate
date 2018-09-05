@@ -13,14 +13,12 @@ import { LOGIN, login } from './actions';
  * Perform Login throught the API
  */
 export function* performLogin(payload) {
-  // Select username from store
-  console.log('ROLF');
-  console.log('username', payload);
 
   const { username, password } = payload;
 
   // if (username && password)
 
+  // Select username from store
   // const username = yield select(makeSelectUsername());
   const requestURL = `https://api.github.com/users/${username}/repos?type=all&sort=updated`;
 
@@ -47,10 +45,6 @@ export function* performLogin(payload) {
 }
 
 export function* loginFlow() {
-  // Watches for LOGIN['REQUEST'] actions and calls performLogin when one comes in.
-  // By using `takeLatest` only the result of the latest API call is applied.
-  // It returns task descriptor (just like fork) so we can continue execution
-  // It will be cancelled automatically on component unmount
   yield takeLatest(LOGIN.REQUEST, performLogin);
   // yield takeLatest(LOGIN['FAILURE'], console.log("ERROR!!!"));
 }
