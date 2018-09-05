@@ -15,7 +15,7 @@
  *    }
  */
 
-import { CHANGE_USERNAME, LOG_IN } from './constants';
+import { CHANGE_USERNAME } from './constants';
 import { action, createActionTypes } from '../App/actions';
 
 /**
@@ -32,21 +32,15 @@ export function changeUsername(name) {
   };
 }
 
-export function logIn(username, password) {
-  return {
-    type: LOG_IN,
-    name,
-  };
-}
-
 // Create LOGIN constants
 export const LOGIN = createActionTypes('LOGIN');
 console.log(LOGIN);
 
-//Prepare login dispatchers
+// Prepare login dispatchers
 export const login = {
-  request: (username, password) => action(LOGIN['REQUEST'], {username, password}),
-  success: (payload, response) => action(LOGIN['SUCCESS'], {payload, response}),
-  failure: (payload, error) => action(LOGIN['FAILURE'], {payload, error}),
-}
+  request: (username, password) =>
+    action(LOGIN.REQUEST, { username, password }),
+  success: response => action(LOGIN.SUCCESS, { response }),
+  failure: error => action(LOGIN.FAILURE, { error }),
+};
 console.log(login);

@@ -10,4 +10,3 @@
  */
 
 export const CHANGE_USERNAME = 'gisceov/LoginPage/CHANGE_USERNAME';
-export const LOG_IN = 'gisceov/LoginPage/LOG_IN';
