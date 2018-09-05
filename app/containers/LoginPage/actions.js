@@ -16,6 +16,7 @@
  */
 
 import { CHANGE_USERNAME, LOG_IN } from './constants';
+import { action, createActionTypes } from '../App/actions';
 
 /**
  * Changes the input field of the form
@@ -37,3 +38,15 @@ export function logIn(username, password) {
     name,
   };
 }
+
+// Create LOGIN constants
+export const LOGIN = createActionTypes('LOGIN');
+console.log(LOGIN);
+
+//Prepare login dispatchers
+export const login = {
+  request: (username, password) => action(LOGIN['REQUEST'], {username, password}),
+  success: (payload, response) => action(LOGIN['SUCCESS'], {payload, response}),
+  failure: (payload, error) => action(LOGIN['FAILURE'], {payload, error}),
+}
+console.log(login);
