@@ -6,28 +6,24 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 
-import EuroIcon from '@material-ui/icons/EuroSymbol';
-import ProfileIcon from '@material-ui/icons/PermIdentity';
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import MessageIcon from '@material-ui/icons/Message';
-import PasswordIcon from '@material-ui/icons/VpnKey';
+import MaterialIcon from 'components/MaterialIcon';
 
 const menuList = [
   {
-    icon: DashboardIcon,
+    icon: MaterialIcon('Dashboard'),
     text: 'Dashboard',
     url: '/dashboard',
     title: 'Go to the Dashboard',
     disabled: true,
   },
   {
-    icon: ProfileIcon,
+    icon: MaterialIcon('PermIdentity'),
     text: 'Contracts',
     url: '/contracts',
     title: 'View contracts list',
   },
   {
-    icon: EuroIcon,
+    icon: MaterialIcon('EuroSymbol'),
     text: 'Invoices',
     url: '/invoices',
     title: 'View invoices list',
@@ -36,7 +32,7 @@ const menuList = [
     divider: true,
   },
   {
-    icon: MessageIcon,
+    icon: MaterialIcon('Message'),
     text: 'Contact',
     url: '/contact',
     title: 'Send us a message',
@@ -46,7 +42,7 @@ const menuList = [
     divider: true,
   },
   {
-    icon: PasswordIcon,
+    icon: MaterialIcon('VpnKey'),
     text: 'Password change',
     url: '/password/change',
     title: 'Change your password',
