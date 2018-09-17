@@ -17,9 +17,6 @@ import theme from 'theme';
 
 import Plugins from 'plugins';
 
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-
 import LoginPage from 'containers/LoginPage/Loadable';
 import HomePage from 'containers/HomePage/Loadable';
 import FeaturePage from 'containers/FeaturePage/Loadable';
@@ -27,7 +24,7 @@ import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 
-import { mailFolderListItems, otherMailFolderListItems } from './menuData';
+import { menu } from './menuData';
 
 const AppWrapper = styled.div`
   // max-width: calc(768px + 16px * 2);
@@ -37,15 +34,6 @@ const AppWrapper = styled.div`
   padding: 0 0px;
   flex-direction: column;
 `;
-
-// Prepare the menu
-const menu = (
-  <div>
-    <List>{mailFolderListItems}</List>
-    <Divider />
-    <List>{otherMailFolderListItems}</List>
-  </div>
-);
 
 export default function App() {
   return (
