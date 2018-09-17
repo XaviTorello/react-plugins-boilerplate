@@ -53,7 +53,7 @@ const menuList = [
 export const menu = menuList.map(
   entry =>
     entry.divider ? (
-      <Divider />
+      <Divider key={Math.random()} />
     ) : (
       <ListItem
         button
