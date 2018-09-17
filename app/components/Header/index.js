@@ -12,13 +12,13 @@ import messages from './messages';
 /* eslint-disable react/prefer-stateless-function */
 class Header extends React.Component {
   render() {
-    const { children } = this.props;
+    const { children, menu } = this.props;
     return (
       <div>
         <A href="https://twitter.com/mxstbr">
           <Img src={Banner} alt="react-boilerplate - Logo" />
         </A>
-        <NavBar>
+        <NavBar menu={menu}>
           <HeaderLink to="/">
             <FormattedMessage {...messages.home} />
           </HeaderLink>
@@ -27,7 +27,6 @@ class Header extends React.Component {
           </HeaderLink>
 
           {children}
-
         </NavBar>
       </div>
     );
@@ -36,6 +35,7 @@ class Header extends React.Component {
 
 Header.propTypes = {
   children: PropTypes.object,
+  menu: PropTypes.object,
 };
 
 export default Header;

@@ -31,8 +31,6 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 
-import { mailFolderListItems, otherMailFolderListItems } from './menuData';
-
 const drawerWidth = 240;
 
 const styles = theme => ({
@@ -114,7 +112,7 @@ class MiniDrawer extends React.Component {
   };
 
   render() {
-    const { classes, theme, children } = this.props;
+    const { classes, theme, children, menu } = this.props;
 
     return (
       <div className={classes.root}>
@@ -162,9 +160,8 @@ class MiniDrawer extends React.Component {
             </IconButton>
           </div>
           <Divider />
-          <List>{mailFolderListItems}</List>
-          <Divider />
-          <List>{otherMailFolderListItems}</List>
+
+          {menu}
         </Drawer>
         <main className={classes.content}>
           <div className={classes.toolbar} />
@@ -181,6 +178,7 @@ class MiniDrawer extends React.Component {
 MiniDrawer.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
+  menu: PropTypes.object,
   children: PropTypes.object,
 };
 

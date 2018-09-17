@@ -11,7 +11,7 @@ const ContainerCentered = styled.div`
 function CompleteDrawer(props) {
   return (
     <div className={props.className}>
-      <Drawer>
+      <Drawer menu={props.menu}>
         <ContainerCentered>{props.children}</ContainerCentered>
       </Drawer>
     </div>
@@ -21,6 +21,7 @@ function CompleteDrawer(props) {
 CompleteDrawer.propTypes = {
   className: PropTypes.string,
   children: PropTypes.array,
+  menu: PropTypes.object,
 };
 
 export default CompleteDrawer;
