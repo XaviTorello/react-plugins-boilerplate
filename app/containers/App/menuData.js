@@ -4,62 +4,71 @@ import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
-import StarIcon from '@material-ui/icons/Star';
-import SendIcon from '@material-ui/icons/Send';
-import MailIcon from '@material-ui/icons/Mail';
-import DeleteIcon from '@material-ui/icons/Delete';
-import ReportIcon from '@material-ui/icons/Report';
+import Divider from '@material-ui/core/Divider';
 
-export const mailFolderListItems = (
-  <div>
-    <ListItem button>
-      <ListItemIcon>
-        <InboxIcon />
-      </ListItemIcon>
-      <ListItemText primary="Inbox" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <StarIcon />
-      </ListItemIcon>
-      <ListItemText primary="Starred" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <SendIcon />
-      </ListItemIcon>
-      <ListItemText primary="Send mail" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <DraftsIcon />
-      </ListItemIcon>
-      <ListItemText primary="Drafts" />
-    </ListItem>
-  </div>
-);
+import EuroIcon from '@material-ui/icons/EuroSymbol';
+import ProfileIcon from '@material-ui/icons/PermIdentity';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import MessageIcon from '@material-ui/icons/Message';
+import PasswordIcon from '@material-ui/icons/VpnKey';
 
-export const otherMailFolderListItems = (
-  <div>
-    <ListItem button>
-      <ListItemIcon>
-        <MailIcon />
-      </ListItemIcon>
-      <ListItemText primary="All mail" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <DeleteIcon />
-      </ListItemIcon>
-      <ListItemText primary="Trash" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <ReportIcon />
-      </ListItemIcon>
-      <ListItemText primary="Spam" />
-    </ListItem>
-  </div>
+const menuList = [
+  {
+    icon: DashboardIcon,
+    text: 'Dashboard',
+    url: '/dashboard',
+    title: 'Go to the Dashboard',
+    disabled: true,
+  },
+  {
+    icon: ProfileIcon,
+    text: 'Contracts',
+    url: '/contracts',
+    title: 'View contracts list',
+  },
+  {
+    icon: EuroIcon,
+    text: 'Invoices',
+    url: '/invoices',
+    title: 'View invoices list',
+  },
+  {
+    divider: true,
+  },
+  {
+    icon: MessageIcon,
+    text: 'Contact',
+    url: '/contact',
+    title: 'Send us a message',
+    disabled: true,
+  },
+  {
+    divider: true,
+  },
+  {
+    icon: PasswordIcon,
+    text: 'Password change',
+    url: '/password/change',
+    title: 'Change your password',
+    disabled: true,
+  },
+];
+
+export const menu = menuList.map(
+  entry =>
+    entry.divider ? (
+      <Divider />
+    ) : (
+      <ListItem
+        button
+        key={entry.url}
+        disabled={entry.disabled || false}
+        title={entry.title || entry.text}
+      >
+        <ListItemIcon>
+          <entry.icon />
+        </ListItemIcon>
+        <ListItemText primary={entry.text} />
+      </ListItem>
+    ),
 );
