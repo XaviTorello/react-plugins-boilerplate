@@ -17,6 +17,8 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 
+import { Link } from 'react-router-dom';
+
 import MaterialIcon from 'components/MaterialIcon';
 
 import { makeSelectMenu } from './selectors';
@@ -28,20 +30,27 @@ export class HeaderMenu extends React.PureComponent {
       const EntryIcon =
         (entry.get('icon') && MaterialIcon(entry.get('icon'))) || null;
 
+      // workaround to prepare a fake fragment
+      const a = props => <React.Fragment>{props.children}</React.Fragment>;
+
+      const LinkManaged = (entry.get('url') && Link) || a;
+
       return entry.get('divider') ? (
         <Divider key={Math.random()} />
       ) : (
-        <ListItem
-          button
-          key={entry.get('url')}
-          disabled={entry.get('disabled') || false}
-          title={entry.get('title') || entry.get('text')}
-        >
-          <ListItemIcon>
-            <EntryIcon />
-          </ListItemIcon>
-          <ListItemText primary={entry.get('text')} />
-        </ListItem>
+        <LinkManaged to={entry.get('url')} key={Math.random()}>
+          <ListItem
+            button
+            key={entry.get('url')}
+            disabled={entry.get('disabled') || false}
+            title={entry.get('title') || entry.get('text')}
+          >
+            <ListItemIcon>
+              <EntryIcon />
+            </ListItemIcon>
+            <ListItemText primary={entry.get('text')} />
+          </ListItem>
+        </LinkManaged>
       );
     });
 
