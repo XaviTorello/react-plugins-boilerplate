@@ -17,10 +17,10 @@ import theme from 'theme';
 
 import Plugins from 'plugins';
 
-import LoginPage from 'containers/LoginPage/Loadable';
-import HomePage from 'containers/HomePage/Loadable';
-import FeaturePage from 'containers/FeaturePage/Loadable';
-import NotFoundPage from 'containers/NotFoundPage/Loadable';
+import LoginPage from 'pages/LoginPage/Loadable';
+import HomePage from 'pages/HomePage/Loadable';
+import FeaturePage from 'pages/FeaturePage/Loadable';
+import NotFoundPage from 'pages/NotFoundPage/Loadable';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 

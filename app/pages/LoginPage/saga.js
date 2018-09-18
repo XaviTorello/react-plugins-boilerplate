@@ -13,7 +13,6 @@ import { LOGIN, login } from './actions';
  * Perform Login throught the API
  */
 export function* performLogin(payload) {
-
   const { username, password } = payload;
 
   // if (username && password)
