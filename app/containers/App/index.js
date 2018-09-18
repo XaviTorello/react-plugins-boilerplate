@@ -21,7 +21,7 @@ import LoginPage from 'pages/LoginPage/Loadable';
 import HomePage from 'pages/HomePage/Loadable';
 import FeaturePage from 'pages/FeaturePage/Loadable';
 import NotFoundPage from 'pages/NotFoundPage/Loadable';
-import Header from 'containers/Header';
+import Skeleton from 'containers/Skeleton';
 import Footer from 'components/Footer';
 
 const AppWrapper = styled.div`
@@ -46,15 +46,15 @@ export default function App() {
             content="A React.js Boilerplate application"
           />
         </Helmet>
-        <Header>
+        <Skeleton>
           <Switch>
-            <Route component={Plugins} />
             <Route path="/login" component={LoginPage} />
             <Route path="/features" component={FeaturePage} />
             <Route exact path="/" component={HomePage} />
+            <Route component={Plugins} />
             <Route path="" component={NotFoundPage} />
           </Switch>
-        </Header>
+        </Skeleton>
         <Footer />
       </MuiThemeProvider>
     </AppWrapper>
