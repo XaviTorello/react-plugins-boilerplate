@@ -1,4 +1,4 @@
-import { action, createActionTypes } from '../App/actions';
+import { action, createActionTypes } from 'containers/App/actions';
 
 // Create LOGIN constants
 export const LOGIN = createActionTypes('LOGIN');

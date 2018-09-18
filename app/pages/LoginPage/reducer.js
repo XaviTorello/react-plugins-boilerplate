@@ -1,6 +1,6 @@
 import { fromJS } from 'immutable';
 
-import { createActionTypes } from '../App/actions';
+import { createActionTypes } from 'containers/App/actions';
 
 export const LOGIN = createActionTypes('LOGIN');
 
