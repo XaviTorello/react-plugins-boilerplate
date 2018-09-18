@@ -1,0 +1,110 @@
+{
+  "items": [
+    {
+      "amount_debt": 0,
+      "amount_pending": 124.58,
+      "bank_account": {
+        "bank": null,
+        "iban": "ES0221044346445502071402",
+        "id": 8,
+        "owner": {
+          "id": 26,
+          "name": "Stallman, Richard",
+          "vat": "ES31480033W"
+        },
+        "printable_iban": "ES02 2104 4346 4455 0207 1402"
+      },
+      "cnae": {
+        "code": "9820",
+        "description":
+          "Actividades de los hogares como productores de servicios para uso propio",
+        "id": 986
+      },
+      "contracted_power": 2.54,
+      "cups": {
+        "id": 8,
+        "name": "ES8110564378079121JT",
+        "street": "Av Catalan Independence, 6 17255 Begur"
+      },
+      "end_date": null,
+      "fiscal_partner": {
+        "id": 26,
+        "name": "Stallman, Richard",
+        "vat": "ES31480033W"
+      },
+      "id": 8,
+      "name": "00002",
+      "notification_address": {
+        "email": "email@gisce.net",
+        "id": 24,
+        "mobile": "+34 600 000 000",
+        "phone": null,
+        "street": "Av Catalan Independence, 6 17255 Begur"
+      },
+      "owner_partner": {
+        "id": 26,
+        "name": "Stallman, Richard",
+        "vat": "ES31480033W"
+      },
+      "pricelist": {
+        "id": 14,
+        "name": "Tarifa 4"
+      },
+      "start_date": "2018-07-02",
+      "state": "activa",
+      "tariff": {
+        "id": 1,
+        "name": "2.0A"
+      }
+    },
+    {
+      "amount_debt": 0,
+      "amount_pending": 0,
+      "bank_account": {
+        "bank": null,
+        "iban": "ES6320499940131463684175",
+        "id": 44,
+        "owner": {
+          "id": 26,
+          "name": "Stallman, Richard",
+          "vat": "ES31480033W"
+        },
+        "printable_iban": "ES63 2049 9940 1314 6368 4175"
+      },
+      "cnae": null,
+      "contracted_power": null,
+      "cups": {
+        "id": 48,
+        "name": "ES1442212064461086GF",
+        "street": "Pla\u00e7a Catalunya, 13 5 2 17001 (Girona)"
+      },
+      "end_date": null,
+      "fiscal_partner": {
+        "id": 26,
+        "name": "Stallman, Richard",
+        "vat": "ES31480033W"
+      },
+      "id": 47,
+      "name": null,
+      "notification_address": {
+        "email": "email@gisce.net",
+        "id": 24,
+        "mobile": "+34 600 000 000",
+        "phone": null,
+        "street": "Av Catalan Independence, 6 17255 Begur"
+      },
+      "owner_partner": {
+        "id": 26,
+        "name": "Stallman, Richard",
+        "vat": "ES31480033W"
+      },
+      "pricelist": null,
+      "start_date": null,
+      "state": "esborrany",
+      "tariff": null
+    }
+  ],
+  "limit": 80,
+  "n_items": 2,
+  "offset": 0
+}
