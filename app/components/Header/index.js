@@ -35,7 +35,7 @@ class Header extends React.Component {
 
 Header.propTypes = {
   children: PropTypes.object,
-  menu: PropTypes.array.isRequired,
+  menu: PropTypes.object.isRequired,
 };
 
 export default Header;

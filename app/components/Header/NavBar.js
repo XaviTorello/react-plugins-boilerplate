@@ -21,7 +21,7 @@ function CompleteDrawer(props) {
 CompleteDrawer.propTypes = {
   className: PropTypes.string,
   children: PropTypes.array,
-  menu: PropTypes.array.isRequired,
+  menu: PropTypes.object.isRequired,
 };
 
 export default CompleteDrawer;

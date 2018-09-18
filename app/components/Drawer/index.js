@@ -177,7 +177,7 @@ class MiniDrawer extends React.Component {
 MiniDrawer.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
-  menu: PropTypes.array.isRequired,
+  menu: PropTypes.object.isRequired,
   children: PropTypes.object,
 };
 
