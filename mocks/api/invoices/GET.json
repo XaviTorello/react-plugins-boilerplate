@@ -1,0 +1,41 @@
+{
+  "items": [
+    {
+      "amount_total": 124.58,
+      "amount_total_printable": "124,58\u00a0\u20ac",
+      "contract": {
+        "id": 8,
+        "name": "00002"
+      },
+      "cups": {
+        "id": 8,
+        "name": "ES8110564378079121JT",
+        "street": "Av Catalan Independence, 6 17255 Begur"
+      },
+      "date": "2018-07-02",
+      "end_date": "2018-07-23",
+      "energy_consumed": 200,
+      "id": 26,
+      "number": "FE00000001",
+      "number_of_days": 22,
+      "paid": false,
+      "partner": {
+        "id": 26,
+        "name": "Stallman, Richard",
+        "vat": "ES31480033W"
+      },
+      "pricelist": {
+        "id": 14,
+        "name": "Tarifa 4"
+      },
+      "start_date": "2018-07-02",
+      "tariff": {
+        "id": 1,
+        "name": "2.0A"
+      }
+    }
+  ],
+  "limit": 80,
+  "n_items": 1,
+  "offset": 0
+}
