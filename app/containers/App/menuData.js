@@ -10,20 +10,20 @@ import MaterialIcon from 'components/MaterialIcon';
 
 const menuList = [
   {
-    icon: MaterialIcon('Dashboard'),
+    icon: 'Dashboard',
     text: 'Dashboard',
     url: '/dashboard',
     title: 'Go to the Dashboard',
     disabled: true,
   },
   {
-    icon: MaterialIcon('PermIdentity'),
+    icon: 'PermIdentity',
     text: 'Contracts',
     url: '/contracts',
     title: 'View contracts list',
   },
   {
-    icon: MaterialIcon('EuroSymbol'),
+    icon: 'EuroSymbol',
     text: 'Invoices',
     url: '/invoices',
     title: 'View invoices list',
@@ -32,7 +32,7 @@ const menuList = [
     divider: true,
   },
   {
-    icon: MaterialIcon('Message'),
+    icon: 'Message',
     text: 'Contact',
     url: '/contact',
     title: 'Send us a message',
@@ -42,7 +42,7 @@ const menuList = [
     divider: true,
   },
   {
-    icon: MaterialIcon('VpnKey'),
+    icon: 'VpnKey',
     text: 'Password change',
     url: '/password/change',
     title: 'Change your password',
@@ -50,21 +50,22 @@ const menuList = [
   },
 ];
 
-export const menu = menuList.map(
-  entry =>
-    entry.divider ? (
-      <Divider key={Math.random()} />
-    ) : (
-      <ListItem
-        button
-        key={entry.url}
-        disabled={entry.disabled || false}
-        title={entry.title || entry.text}
-      >
-        <ListItemIcon>
-          <entry.icon />
-        </ListItemIcon>
-        <ListItemText primary={entry.text} />
-      </ListItem>
-    ),
-);
+export const menu = menuList.map(entry => {
+  const EntryIcon = (entry.icon && MaterialIcon(entry.icon)) || null;
+
+  return entry.divider ? (
+    <Divider key={Math.random()} />
+  ) : (
+    <ListItem
+      button
+      key={entry.url}
+      disabled={entry.disabled || false}
+      title={entry.title || entry.text}
+    >
+      <ListItemIcon>
+        <EntryIcon />
+      </ListItemIcon>
+      <ListItemText primary={entry.text} />
+    </ListItem>
+  );
+});
