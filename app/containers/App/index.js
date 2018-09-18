@@ -21,10 +21,8 @@ import LoginPage from 'pages/LoginPage/Loadable';
 import HomePage from 'pages/HomePage/Loadable';
 import FeaturePage from 'pages/FeaturePage/Loadable';
 import NotFoundPage from 'pages/NotFoundPage/Loadable';
-import Header from 'components/Header';
+import Header from 'containers/Header';
 import Footer from 'components/Footer';
-
-import { menu } from './menuData';
 
 const AppWrapper = styled.div`
   // max-width: calc(768px + 16px * 2);
@@ -48,12 +46,12 @@ export default function App() {
             content="A React.js Boilerplate application"
           />
         </Helmet>
-        <Header menu={menu}>
+        <Header>
           <Switch>
+            <Route component={Plugins} />
             <Route path="/login" component={LoginPage} />
             <Route path="/features" component={FeaturePage} />
             <Route exact path="/" component={HomePage} />
-            <Route component={Plugins} />
             <Route path="" component={NotFoundPage} />
           </Switch>
         </Header>
