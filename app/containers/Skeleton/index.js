@@ -29,15 +29,10 @@ export class HeaderMenu extends React.PureComponent {
       const EntryIcon =
         (entry.get('icon') && MaterialIcon(entry.get('icon'))) || null;
 
-      // workaround to prepare a fake fragment
-      const a = props => <React.Fragment>{props.children}</React.Fragment>;
-
-      const LinkManaged = (entry.get('url') && Link) || a;
-
       return entry.get('divider') ? (
         <Divider key={Math.random()} />
       ) : (
-        <LinkManaged to={entry.get('url')} key={Math.random()}>
+        <Link to={entry.get('url')} key={Math.random()}>
           <ListItem
             button
             key={entry.get('url')}
@@ -49,7 +44,7 @@ export class HeaderMenu extends React.PureComponent {
             </ListItemIcon>
             <ListItemText primary={entry.get('text')} />
           </ListItem>
-        </LinkManaged>
+        </Link>
       );
     });
 
