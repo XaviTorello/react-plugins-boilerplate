@@ -18,8 +18,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 
 import MaterialIcon from 'components/MaterialIcon';
-
-import { Link } from './Link';
+import Link from 'components/Link';
 
 import { makeSelectMenu } from './selectors';
 
