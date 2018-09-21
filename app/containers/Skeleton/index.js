@@ -30,16 +30,17 @@ import * as actions from './actions';
 import reducer from './reducer';
 import saga from './saga';
 
-export class HeaderMenu extends React.Component {
-  shouldComponentUpdate(nextProps) {
-    // Update HeaderMenu just if props are different
-    return (nextProps.menu !== this.props.menu)
-  }
+export class HeaderMenu extends React.PureComponent {
+  // shouldComponentUpdate(nextProps) {
+  //   // Update HeaderMenu just if props are different
+  //   return (nextProps.menu !== this.props.menu)
+  // }
 
   componentWillMount() {
     // Load the menu from the API on load page!
     this.props.loadMenu();
   }
+
   render() {
     const menuFormatted = this.props.menu.map(entry => {
       const EntryIcon =
