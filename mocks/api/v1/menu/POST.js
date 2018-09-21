@@ -13,9 +13,9 @@ module.exports = function(request, response) {
   };
 
   if (token in validEntries) {
-    targetFileName = `${validEntries[token].group}.json`;
+    targetFileName = `results/${validEntries[token].group}.json`;
   } else {
-    targetFileName = `unauth.json`;
+    targetFileName = `results/unauth.json`;
   }
 
   // If file does not exist then respond with 404 header

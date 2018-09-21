@@ -1,7 +1,7 @@
 module.exports = function(request, response) {
   const { password, username } = request.body;
 
-  let targetFileName = `POST_admins.json`;
+  let targetFileName = '';
 
   const validUsers = {
     admin: {
@@ -15,9 +15,9 @@ module.exports = function(request, response) {
   };
 
   if (username in validUsers && password === validUsers[username].password) {
-    targetFileName = `${validUsers[username].group}.json`;
+    targetFileName = `results/${validUsers[username].group}.json`;
   } else {
-    targetFileName = `invalid_credentials.json`;
+    targetFileName = `results/invalid_credentials.json`;
   }
 
   // If file does not exist then respond with 404 header
