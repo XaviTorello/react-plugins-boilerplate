@@ -13,4 +13,20 @@ const makeSelectUsername = () =>
 const makeSelectToken = () =>
   createSelector(selectLogin, loginState => loginState.get('token'));
 
-export { selectLogin, makeSelectUsername, makeSelectToken };
+const makeSelectLoading = () =>
+  createSelector(selectLogin, loginState => loginState.get('loading'));
+
+const makeSelectError = () =>
+  createSelector(selectLogin, loginState => loginState.get('error'));
+
+const makeSelectMessage = () =>
+  createSelector(selectLogin, loginState => loginState.get('message'));
+
+export {
+  selectLogin,
+  makeSelectUsername,
+  makeSelectToken,
+  makeSelectLoading,
+  makeSelectError,
+  makeSelectMessage,
+};
