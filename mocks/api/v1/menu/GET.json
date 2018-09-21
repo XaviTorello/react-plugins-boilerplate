@@ -1,5 +1,5 @@
 {
-  "menu": [
+  "items": [
     {
       "icon": "Person",
       "text": "Login",
@@ -48,5 +48,8 @@
       "title": "Change your password",
       "disabled": true
     }
-  ]
+  ],
+  "n_items": 9,
+  "limit": 80,
+  "offset": 0
 }
