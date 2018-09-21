@@ -5,7 +5,4 @@ export const menu = [
     url: '/login',
     title: 'Log in!',
   },
-  {
-    divider: true,
-  },
 ];
