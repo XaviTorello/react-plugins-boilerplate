@@ -17,7 +17,7 @@ export function changeMenu(languageLocale) {
 // Create MENU constants and dispatchers
 export const MENU = createActionTypes('MENU');
 export const menu = {
-  request: username => action(MENU.REQUEST, { username }),
+  request: token => action(MENU.REQUEST, { token }),
   success: items => action(MENU.SUCCESS, { menu: items }),
   failure: error => action(MENU.FAILURE, { error }),
 };
