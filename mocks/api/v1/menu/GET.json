@@ -47,6 +47,16 @@
       "url": "/password/change",
       "title": "Change your password",
       "disabled": true
+    },
+    {
+      "divider": true
+    },
+    {
+      "icon": "Close",
+      "text": "Logout",
+      "url": "/logout",
+      "title": "Exit application",
+      "disabled": true
     }
   ],
   "n_items": 9,
