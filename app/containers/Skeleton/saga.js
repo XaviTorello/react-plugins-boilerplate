@@ -29,9 +29,6 @@ export function* getMenu(payload) {
     };
     const loginResult = yield call(request, requestURL, options);
 
-    console.log('loginResult');
-    console.log(loginResult);
-
     const { items, itemsNumber, limit, offset, error } = loginResult;
 
     if (!error) yield put(menu.success(items));

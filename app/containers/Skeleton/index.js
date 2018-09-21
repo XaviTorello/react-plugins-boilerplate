@@ -30,8 +30,11 @@ import * as actions from './actions';
 import reducer from './reducer';
 import saga from './saga';
 
-export class HeaderMenu extends React.PureComponent {
-  // eslint-disable-line react/prefer-stateless-function
+export class HeaderMenu extends React.Component {
+  shouldComponentUpdate(nextProps, nextState) {
+    // Update HeaderMenu just if props are different
+    return (nextProps.menu !== this.props.menu)
+  }
 
   componentDidMount() {
     // Load the menu on load page!

@@ -26,13 +26,15 @@ function menuReducer(state = initialState, action) {
     /////////// */
 
     case MENU.REQUEST:
-      return state.set('loading', true).set('error', false);
+      return state
+        .set('loading', true)
+        .set('error', false);
 
     case MENU.SUCCESS:
       return state
-        .set('menu', fromJS(action.menu))
         .set('loading', false)
-        .set('error', false);
+        .set('error', false)
+        .set('menu', fromJS(action.menu))
 
     case MENU.FAILURE:
       return state
