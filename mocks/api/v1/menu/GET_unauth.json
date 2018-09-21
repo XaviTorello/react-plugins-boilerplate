@@ -1,0 +1,23 @@
+{
+  "items": [
+    {
+      "icon": "Person",
+      "text": "Login",
+      "url": "/login",
+      "title": "Log in!"
+    },
+    {
+      "divider": true
+    },
+    {
+      "icon": "VpnKey",
+      "text": "Register",
+      "url": "/register",
+      "title": "Create a new account",
+      "disabled": true
+    }
+  ],
+  "n_items": 3,
+  "limit": 80,
+  "offset": 0
+}

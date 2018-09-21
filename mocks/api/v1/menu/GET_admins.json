@@ -1,0 +1,75 @@
+{
+  "items": [
+    {
+      "icon": "Person",
+      "text": "Login",
+      "url": "/login",
+      "title": "Log in!"
+    },
+    {
+      "divider": true
+    },
+    {
+      "icon": "Dashboard",
+      "text": "Dashboard",
+      "url": "/dashboard",
+      "title": "Go to the Dashboard",
+      "disabled": true
+    },
+    {
+      "icon": "PermIdentity",
+      "text": "Contracts",
+      "url": "/contracts",
+      "title": "View contracts list"
+    },
+    {
+      "icon": "EuroSymbol",
+      "text": "Invoices",
+      "url": "/invoices",
+      "title": "View invoices list"
+    },
+    {
+      "divider": true
+    },
+    {
+      "icon": "Message",
+      "text": "Contact",
+      "url": "/contact",
+      "title": "Send us a message",
+      "disabled": true
+    },
+    {
+      "divider": true
+    },
+    {
+      "icon": "VpnKey",
+      "text": "Password change",
+      "url": "/password/change",
+      "title": "Change your password",
+      "disabled": true
+    },
+    {
+      "divider": true
+    },
+    {
+      "icon": "Settings",
+      "text": "Admin",
+      "url": "/admin",
+      "title": "Administrate",
+      "disabled": true
+    },
+    {
+      "divider": true
+    },
+    {
+      "icon": "Close",
+      "text": "Logout",
+      "url": "/logout",
+      "title": "Exit application",
+      "disabled": true
+    }
+  ],
+  "n_items": 11,
+  "limit": 80,
+  "offset": 0
+}
