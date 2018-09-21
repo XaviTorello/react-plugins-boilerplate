@@ -1,5 +1,14 @@
 export const menu = [
   {
+    icon: 'Person',
+    text: 'Login',
+    url: '/login',
+    title: 'Log in!',
+  },
+  {
+    divider: true,
+  },
+  {
     icon: 'Dashboard',
     text: 'Dashboard',
     url: '/dashboard',
