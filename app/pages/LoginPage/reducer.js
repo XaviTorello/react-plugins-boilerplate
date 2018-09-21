@@ -7,6 +7,8 @@ export const initialState = fromJS({
   token: false,
   loading: false,
   error: false,
+  details: false,
+  message: false,
 });
 
 function loginReducer(state = initialState, action) {
@@ -22,16 +24,20 @@ function loginReducer(state = initialState, action) {
     case LOGIN.SUCCESS:
       return state
         .set('username', action.username)
-        .set('token', action.token)
+        .set('token', action.result.token)
+        .set('details', action.result.details)
+        .set('message', action.result.message)
         .set('loading', false)
         .set('error', false);
 
     case LOGIN.FAILURE:
       return state
         .set('username', false)
+        .set('details', false)
         .set('token', false)
         .set('loading', false)
-        .set('error', action.error.message || true);
+        .set('message', action.error.message)
+        .set('error', true);
 
     default:
       return state;
