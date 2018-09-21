@@ -35,14 +35,14 @@ export function* performLogin(payload) {
         password,
       }),
     };
-    const loginResult = yield call(request, requestURL, options);
+    const result = yield call(request, requestURL, options);
 
-    console.log('loginResult');
-    console.log(loginResult);
-
-    if (loginResult.token)
-      yield put(login.success(username, loginResult.token));
-    else yield put(login.failure({ message: 'Invalid credentials' }));
+    if (!result.error && result.token)
+      yield put(login.success(username, result.token));
+    else
+      yield put(
+        login.failure({ message: login.message || 'Invalid credentials' }),
+      );
   } catch (err) {
     yield put(login.failure(err));
   }
