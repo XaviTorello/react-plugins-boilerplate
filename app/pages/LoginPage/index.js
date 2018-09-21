@@ -14,11 +14,6 @@ import { createStructuredSelector } from 'reselect';
 
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
-import {
-  makeSelectRepos,
-  makeSelectLoading,
-  makeSelectError,
-} from 'containers/App/selectors';
 
 import withStyles from '@material-ui/core/styles/withStyles';
 
@@ -36,7 +31,13 @@ import Paper from './Paper';
 import messages from './messages';
 
 import { login } from './actions';
-import { makeSelectUsername, makeSelectToken } from './selectors';
+import {
+  makeSelectUsername,
+  makeSelectToken,
+  makeSelectMessage,
+  makeSelectLoading,
+  makeSelectError,
+} from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 
@@ -75,10 +76,6 @@ const styles = theme => ({
 
 /* eslint-disable react/prefer-stateless-function */
 export class LoginPage extends React.PureComponent {
-  /**
-   * when initial state username is not null, submit the form to load repos
-   */
-
   handleChange = name => event => {
     this.setState({
       [name]: event.target.value,
@@ -99,7 +96,7 @@ export class LoginPage extends React.PureComponent {
   }
 
   render() {
-    const { loading, error, repos, classes } = this.props;
+    const { loading, error, classes, message } = this.props;
 
     return (
       <article>
@@ -119,11 +116,7 @@ export class LoginPage extends React.PureComponent {
                   <LockIcon />
                 </Avatar>
                 <Typography variant="headline">Login</Typography>
-                <form
-                  className={classes.form}
-                  onSubmit={this.props.onSubmitForm}
-                  onSubmit={this.handleFormSubmit}
-                >
+                <form className={classes.form} onSubmit={this.handleFormSubmit}>
                   <FormControl margin="normal" required fullWidth>
                     <InputLabel htmlFor="email">
                       <FormattedMessage {...messages.formEmailTitle} />
@@ -161,6 +154,7 @@ export class LoginPage extends React.PureComponent {
               </Paper>
             </main>
           </CenteredSection>
+          <b>Message</b>: {message}
         </div>
       </article>
     );
@@ -169,10 +163,11 @@ export class LoginPage extends React.PureComponent {
 
 LoginPage.propTypes = {
   loading: PropTypes.bool,
+  message: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
-  repos: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
   onSubmitForm: PropTypes.func,
   username: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  password: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   token: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   // onChangeUsername: PropTypes.func,
   classes: PropTypes.object.isRequired,
@@ -187,11 +182,11 @@ export function mapDispatchToProps(dispatch) {
 }
 
 const mapStateToProps = createStructuredSelector({
-  repos: makeSelectRepos(),
   username: makeSelectUsername(),
   token: makeSelectToken(),
   loading: makeSelectLoading(),
   error: makeSelectError(),
+  message: makeSelectMessage(),
 });
 
 const withConnect = connect(
