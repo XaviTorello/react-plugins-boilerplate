@@ -2,7 +2,6 @@ import { action, createActionTypes } from 'containers/App/actions';
 
 // Create LOGIN constants
 export const LOGIN = createActionTypes('LOGIN');
-
 // Prepare login dispatchers
 export const login = {
   request: (username, password) =>

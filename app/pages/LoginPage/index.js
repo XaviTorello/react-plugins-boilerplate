@@ -118,6 +118,7 @@ export class LoginPage extends React.PureComponent {
                       name="email"
                       autoComplete="email"
                       autoFocus
+                      value="asdad@asdads.com"
                     />
                   </FormControl>
                   <FormControl margin="normal" required fullWidth>
@@ -129,6 +130,7 @@ export class LoginPage extends React.PureComponent {
                       type="password"
                       id="password"
                       autoComplete="current-password"
+                      value="asdad@asdads.com"
                     />
                   </FormControl>
                   <Button

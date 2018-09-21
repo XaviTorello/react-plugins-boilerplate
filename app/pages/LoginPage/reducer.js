@@ -12,6 +12,10 @@ export const initialState = fromJS({
 function loginReducer(state = initialState, action) {
   console.log('Reducing action', action);
   switch (action.type) {
+    // ////////////
+    //  LOGIN!  //
+    // ////////////
+
     case LOGIN.REQUEST:
       return state
         .set('username', false)

@@ -9,9 +9,12 @@ import { LOGIN, login } from './actions';
 
 // import { makeSelectUsername } from 'containers/HomePage/selectors';
 
+const api = '/api/v1';
+
 /**
  * Perform Login throught the API
  */
+
 export function* performLogin(payload) {
   const { username, password } = payload;
 
@@ -19,7 +22,7 @@ export function* performLogin(payload) {
 
   // Select username from store
   // const username = yield select(makeSelectUsername());
-  const requestURL = `https://api.github.com/users/${username}/repos?type=all&sort=updated`;
+  const requestURL = `${api}/login`;
 
   try {
     const options = {
@@ -33,6 +36,9 @@ export function* performLogin(payload) {
       }),
     };
     const loginResult = yield call(request, requestURL, options);
+
+    console.log('loginResult');
+    console.log(loginResult);
 
     if (loginResult.token)
       yield put(login.success(username, loginResult.token));
