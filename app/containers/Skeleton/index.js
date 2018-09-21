@@ -32,7 +32,11 @@ export class HeaderMenu extends React.PureComponent {
       return entry.get('divider') ? (
         <Divider key={Math.random()} />
       ) : (
-        <Link to={entry.get('url')} key={Math.random()}>
+        <Link
+          to={entry.get('url')}
+          disabled={entry.get('disabled') || false}
+          key={Math.random()}
+        >
           <ListItem
             button
             key={entry.get('url')}

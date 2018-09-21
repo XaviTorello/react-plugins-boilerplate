@@ -8,7 +8,7 @@ export const LinkStyled = styled(Link)`
 `;
 
 function StyledComponentsLink(props) {
-  if (props.to) {
+  if (props.to && !props.disabled) {
     return <LinkStyled to={props.to} {...props} />;
   }
   return <div {...props} />;
@@ -16,6 +16,7 @@ function StyledComponentsLink(props) {
 
 StyledComponentsLink.propTypes = {
   to: PropTypes.string,
+  disabled: PropTypes.bool,
 };
 
 export default StyledComponentsLink;
