@@ -78,9 +78,23 @@ export class LoginPage extends React.PureComponent {
   /**
    * when initial state username is not null, submit the form to load repos
    */
+
+  handleChange = name => event => {
+    this.setState({
+      [name]: event.target.value,
+    });
+  };
+
+  handleFormSubmit = evt => {
+    if (evt !== undefined && evt.preventDefault) evt.preventDefault();
+    const { username, password } = this.state;
+    this.props.onSubmitForm(username, password);
+  };
+
   componentDidMount() {
     if (this.props.username && this.props.username.trim().length > 0) {
-      this.props.onSubmitForm();
+      const { username, password } = this.props;
+      this.props.onSubmitForm(username, password);
     }
   }
 
@@ -108,6 +122,7 @@ export class LoginPage extends React.PureComponent {
                 <form
                   className={classes.form}
                   onSubmit={this.props.onSubmitForm}
+                  onSubmit={this.handleFormSubmit}
                 >
                   <FormControl margin="normal" required fullWidth>
                     <InputLabel htmlFor="email">
@@ -118,7 +133,7 @@ export class LoginPage extends React.PureComponent {
                       name="email"
                       autoComplete="email"
                       autoFocus
-                      value="asdad@asdads.com"
+                      onChange={this.handleChange('username')}
                     />
                   </FormControl>
                   <FormControl margin="normal" required fullWidth>
@@ -130,7 +145,7 @@ export class LoginPage extends React.PureComponent {
                       type="password"
                       id="password"
                       autoComplete="current-password"
-                      value="asdad@asdads.com"
+                      onChange={this.handleChange('password')}
                     />
                   </FormControl>
                   <Button
@@ -165,10 +180,8 @@ LoginPage.propTypes = {
 
 export function mapDispatchToProps(dispatch) {
   return {
-    // onChangeUsername: evt => dispatch(changeUsername(evt.target.value)),
-    onSubmitForm: evt => {
-      if (evt !== undefined && evt.preventDefault) evt.preventDefault();
-      dispatch(login.request('a_username', 'a_paswword'));
+    onSubmitForm: (username, password) => {
+      dispatch(login.request(username, password));
     },
   };
 }
