@@ -31,13 +31,13 @@ import reducer from './reducer';
 import saga from './saga';
 
 export class HeaderMenu extends React.Component {
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate(nextProps) {
     // Update HeaderMenu just if props are different
     return (nextProps.menu !== this.props.menu)
   }
 
-  componentDidMount() {
-    // Load the menu on load page!
+  componentWillMount() {
+    // Load the menu from the API on load page!
     this.props.loadMenu();
   }
   render() {
