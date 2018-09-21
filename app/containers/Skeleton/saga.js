@@ -12,7 +12,7 @@ import { MENU, menu } from './actions';
 const api = '/api/v1';
 
 export function* getMenu(payload) {
-  const { username } = payload;
+  const { token } = payload;
 
   // if (username)
 
@@ -22,10 +22,13 @@ export function* getMenu(payload) {
 
   try {
     const options = {
-      method: 'GET',
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
+      body: JSON.stringify({
+        token,
+      }),
     };
     const loginResult = yield call(request, requestURL, options);
 
