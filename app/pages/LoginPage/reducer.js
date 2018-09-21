@@ -12,16 +12,12 @@ export const initialState = fromJS({
 function loginReducer(state = initialState, action) {
   console.log('Reducing action', action);
   switch (action.type) {
-    // ////////////
+    /* ////////////
     //  LOGIN!  //
-    // ////////////
+    //////////// */
 
     case LOGIN.REQUEST:
-      return state
-        .set('username', false)
-        .set('token', false)
-        .set('loading', true)
-        .set('error', false);
+      return state.set('loading', true).set('error', false);
 
     case LOGIN.SUCCESS:
       return state
