@@ -3,7 +3,7 @@
     "eyJhbGciOiJIUzI1NiIsImlhdCI6MTUzNzI2NDI0MywiZXhwIjoxNTM3MzUwNjQzfQ.eyJ1c2VyX2lkIjoiNDMiLCJsb2dpbiI6IkFBQSJ9.Pqo5E5c5iOwnX0oUqnOWkhKiNJgBUvdYbTHLp4v698M",
   "message": "Login ok! Accessing application",
   "error": false,
-  "user": {
+  "details": {
     "group": "admins",
     "username": "admin",
     "name": "Admin",
