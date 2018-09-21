@@ -6,6 +6,6 @@ export const LOGIN = createActionTypes('LOGIN');
 export const login = {
   request: (username, password) =>
     action(LOGIN.REQUEST, { username, password }),
-  success: (username, token) => action(LOGIN.SUCCESS, { username, token }),
+  success: (username, result) => action(LOGIN.SUCCESS, { username, result }),
   failure: error => action(LOGIN.FAILURE, { error }),
 };
