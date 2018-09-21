@@ -38,7 +38,7 @@ export function* performLogin(payload) {
     const result = yield call(request, requestURL, options);
 
     if (!result.error && result.token)
-      yield put(login.success(username, result.token));
+      yield put(login.success(username, result));
     else
       yield put(
         login.failure({ message: login.message || 'Invalid credentials' }),
