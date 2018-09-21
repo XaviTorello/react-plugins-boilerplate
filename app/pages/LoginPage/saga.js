@@ -5,6 +5,8 @@
 import { call, put, takeLatest, all } from 'redux-saga/effects';
 import request from 'utils/request';
 
+import { menu } from 'containers/Skeleton/actions';
+
 import { LOGIN, login } from './actions';
 
 // import { makeSelectUsername } from 'containers/HomePage/selectors';
@@ -37,14 +39,17 @@ export function* performLogin(payload) {
     };
     const result = yield call(request, requestURL, options);
 
-    if (!result.error && result.token)
+    if (!result.error && result.token) {
       yield put(login.success(username, result));
-    else
+    } else
       yield put(
         login.failure({ message: login.message || 'Invalid credentials' }),
       );
+
+    yield put(menu.request(result.token));
   } catch (err) {
     yield put(login.failure(err));
+    yield put(menu.request(''));
   }
 }
 
